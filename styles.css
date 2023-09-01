@@ -196,6 +196,7 @@ body {
     background-position: 100% 0;
 }
 
+
 .home-img{
     width: 410px;
     height: 410px;
@@ -356,14 +357,107 @@ section{
     background-color: #1d2229;
 }
 
-.about{
-    background-color: #4e3300;
+.about {
+    background-color: #000000;
     opacity: 80%;
+    position: relative; /* Add this to establish a positioning context */
+    overflow: hidden; /* Ensure the glowing triangle doesn't overflow */
+  }
+  
+  .glowing-triangle {
+    width: 30vw;
+    height: calc(30vw / (1 / 1));
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: #00ffff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1; /* Lower z-index to place it behind the shadow */
+  }
+  
+  .shadow {
+    filter: drop-shadow(10px 10px 200px #00ffff) drop-shadow(-10px -10px 50px #00ffff);
+    position: relative; /* Add this to establish a positioning context */
+    z-index: 2; /* Raise z-index to place it above the glowing triangle */
+  }
+  
+  .about-image {
+    position: absolute;
+    top: 0; /* Position the image at the top of the container */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 3; /* Ensure the image is above the background and shadow */
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
 
-}
+  
 
-/* About Page */
-
+  .about {
+    background-color: #000000;
+    opacity: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glowing-triangle {
+    width: 30vw;
+    height: calc(30vw / (1 / 1));
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: #00ffff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  /* Add this CSS for the triangle outline */
+  .glowing-triangle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00ffff; /* Adjust the border properties as needed */
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind the triangle */
+  }
+  
+  .shadow {
+    filter: drop-shadow(10px 10px 200px #00ffff) drop-shadow(-10px -10px 50px #00ffff);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .about-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 /* Services Page */
@@ -665,10 +759,4 @@ dd {
 
 
 /* Resume */
-
-
-  
-
-
-
 
