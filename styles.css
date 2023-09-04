@@ -346,6 +346,7 @@ body {
 /*  */
 section{
     height: 100vh;
+    position: relative;
 }
 
 .contact{
@@ -355,71 +356,33 @@ section{
 
 .services{
     background-color: #1d2229;
+    z-index: 3;
+
 }
 
+  
 .about {
-    background-color: #000000;
-    opacity: 80%;
-    position: relative; /* Add this to establish a positioning context */
-    overflow: hidden; /* Ensure the glowing triangle doesn't overflow */
-  }
-  
-  .glowing-triangle {
-    width: 30vw;
-    height: calc(30vw / (1 / 1));
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background-color: #00ffff;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 1; /* Lower z-index to place it behind the shadow */
-  }
-  
-  .shadow {
-    filter: drop-shadow(10px 10px 200px #00ffff) drop-shadow(-10px -10px 50px #00ffff);
-    position: relative; /* Add this to establish a positioning context */
-    z-index: 2; /* Raise z-index to place it above the glowing triangle */
-  }
-  
-  .about-image {
-    position: absolute;
-    top: 0; /* Position the image at the top of the container */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 3; /* Ensure the image is above the background and shadow */
-  }
-  
-  .about-image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-
-  
-
-  .about {
+    z-index: 2;
     background-color: #000000;
     opacity: 100%;
-    position: relative;
-    overflow: hidden;
+    display: flex;
   }
-  
-  .glowing-triangle {
-    width: 30vw;
-    height: calc(30vw / (1 / 1));
+
+.glowing-triangle {
+    width: 600px;
+    height: 600px;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     background-color: #00ffff;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 150px;
+    transform: rotate(57deg);
     z-index: 1;
   }
+
   
   /* Add this CSS for the triangle outline */
-  .glowing-triangle::before {
+.glowing-triangle::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -428,28 +391,49 @@ section{
     box-sizing: border-box;
     top: 0;
     left: 0;
-    z-index: -1; /* Place it behind the triangle */
+    z-index: -2; /* Place it behind the triangle */
   }
   
-  .shadow {
-    filter: drop-shadow(10px 10px 200px #00ffff) drop-shadow(-10px -10px 50px #00ffff);
+.shadow {
+    filter: drop-shadow(5px 5px 50px #00ffff) drop-shadow(-10px -10px 50px #00ffff);
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
   
-  .about-image {
-    position: absolute;
-    top: 0;
-    left: 50%;
+.about-image {
+    position: relative;
+    width: 600px;
+    height: auto;
+    top: 57px;
+    left: 350px;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    
   }
-  
-  .about-image img {
+
+.about-image img{
     max-width: 100%;
     height: auto;
-    display: block;
   }
+
+.about-content{
+    max-width: 500px;
+    height: 500px;
+    position: relative;
+    gap: 20px;
+    padding: 20px;
+    top: 100px;
+    left: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+
+  }
+
   
   
   
@@ -759,4 +743,10 @@ dd {
 
 
 /* Resume */
+
+
+  
+
+
+
 
